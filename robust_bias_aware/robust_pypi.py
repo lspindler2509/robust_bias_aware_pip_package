@@ -1,7 +1,7 @@
 import robust
 import argparse
 
-def myFun(**kwargs):
+def robust_bias_aware(**kwargs):
     if not('seeds' in kwargs.keys()) or not('outfile' in kwargs.keys()):
         if not('seeds' in kwargs.keys()):
             raise ValueError("Missing required parameter: 'seeds'")
