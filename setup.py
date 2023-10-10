@@ -11,7 +11,7 @@ setuptools.setup(
     description="A python package for ROBUST disease module mining algorithm with study bias correction via the incorporation of bias-aware edge costs.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/wino6687/pip_conda_demo",
+    url="https://github.com/bionetslab/robust_bias_aware_pip_package",
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3.7",
