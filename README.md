@@ -79,4 +79,4 @@ For a large-scale empirical evaluation of ROBUST, please follow the instructions
 # Citing ROBUST
 
 Please cite ROBUST as follows:
-- S. Sarkar, M. Lucchetta, A. Maier, M. M. Abdrabbou, J. Baumbach, M. List, M. H. Schaefer, D. B. Blumenthal: *Online bias-aware disease module mining with ROBUST-Web*, **Bioinformatics 35(6)**, 26 May 2023, https://doi.org/10.1093/bioinformatics/btad345.
+- S. Sarkar, M. Lucchetta, A. Maier, M. M. Abdrabbou, J. Baumbach, M. List, M. H. Schaefer, D. B. Blumenthal: *Online bias-aware disease module mining with ROBUST-Web*, **Bioinformatics 39(6)**, btad345, 2023, https://doi.org/10.1093/bioinformatics/btad345.
