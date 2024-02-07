@@ -80,3 +80,11 @@ For a large-scale empirical evaluation of ROBUST, please follow the instructions
 
 Please cite ROBUST as follows:
 - S. Sarkar, M. Lucchetta, A. Maier, M. M. Abdrabbou, J. Baumbach, M. List, M. H. Schaefer, D. B. Blumenthal: *Online bias-aware disease module mining with ROBUST-Web*, **Bioinformatics 39(6)**, btad345, 2023, https://doi.org/10.1093/bioinformatics/btad345.
+
+
+# Usage of tool after installing
+
+```bash
+robust-bias-aware --seeds seed_file.txt --outfile graph.graphml
+```
+
