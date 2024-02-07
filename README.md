@@ -1,5 +1,7 @@
 # Installation
 
+## with conda
+
 Install conda environment as follows (there also exists an environment.yml but it contains more packages than necessary)
 ```bash
 conda create --name robust python=3.7
@@ -9,19 +11,26 @@ pip install pcst_fast
 ```
 Note that Python 3.7 is a hard requirement!
 
+## with pip
+
+```bash
+pip install -r requirements.txt
+```
+
+
 # Running ROBUST
 
 Navigate to home path '/robust_bias_aware', then you can simply run robust by calling 
 ```bash
-python3 robust.py ./data/data-case-study-1-covid-19/covid-19-seeds.txt covid19.graphml
+python3 robust.py --seeds ./data/data-case-study-1-covid-19/covid-19-seeds.txt --outfile covid19.graphml
 
-python3 robust.py ./data/data-case-study-2-prec-puberty/prec-pub-seeds.txt prec_puberty.graphml --namespace UNIPROT
+python3 robust.py --seeds ./data/data-case-study-2-prec-puberty/prec-pub-seeds.txt --outfile prec_puberty.graphml --namespace UNIPROT
 ```
 The positional arguments are:
 ```
 
-[1] file with a list of seed genes (delimiter: newline-separated)
-[2] path to output file (supported output file types: .graphml, .csv, others) [read more below]
+[1] seeds: file with a list of seed genes (delimiter: newline-separated)
+[2] outfile: path to output file (supported output file types: .graphml, .csv, others) [read more below]
 
 
 The suffix of the path to the output file you specify, determine the format of the output.
@@ -83,6 +92,8 @@ Please cite ROBUST as follows:
 
 
 # Usage of tool after installing
+
+Additional arguments can be used as described above.
 
 ```bash
 robust-bias-aware --seeds seed_file.txt --outfile graph.graphml
