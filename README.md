@@ -22,9 +22,9 @@ pip install -r requirements.txt
 
 Navigate to home path '/robust_bias_aware', then you can simply run robust by calling 
 ```bash
-python3 robust.py --seeds ./data/data-case-study-1-covid-19/covid-19-seeds.txt --outfile covid19.graphml
+python3 robust_bias_aware.py --seeds ./data/data-case-study-1-covid-19/covid-19-seeds.txt --outfile covid19.graphml
 
-python3 robust.py --seeds ./data/data-case-study-2-prec-puberty/prec-pub-seeds.txt --outfile prec_puberty.graphml --namespace UNIPROT
+python3 robust_bias_aware.py --seeds ./data/data-case-study-2-prec-puberty/prec-pub-seeds.txt --outfile prec_puberty.graphml --namespace UNIPROT
 ```
 The positional arguments are:
 ```
