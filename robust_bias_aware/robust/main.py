@@ -6,7 +6,7 @@ import warnings
 import pandas as pd
 import os
 
-def getpath():
+def get_path():
     data_directory = "./robust_bias_aware"
     if os.path.isdir(data_directory):
         # package mode
@@ -80,7 +80,7 @@ def _check_namespace(namespace):
 
 
 def _get_path_to_study_bias_scores(study_bias_scores, namespace):
-    directory = getpath()
+    directory = get_path()
     if isinstance(study_bias_scores, pd.DataFrame):
         study_bias_scores.to_csv(f'{directory}/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv', index=False)
         study_bias_scores=f'{directory}/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv'
@@ -99,7 +99,7 @@ def _get_path_to_study_bias_scores(study_bias_scores, namespace):
 
 
 def _check_and_preprocess_network(network, namespace):
-    directory = getpath()
+    directory = get_path()
     is_graphml=0
     if type(network) is nx.Graph:
         is_graphml=1
