@@ -4,6 +4,16 @@ import networkx as nx
 import os.path
 import warnings
 import pandas as pd
+import os
+
+def getpath():
+    data_directory = "./robust_bias_aware"
+    if os.path.isdir(data_directory):
+        # package mode
+        return data_directory
+    else:
+        # local mode
+        return "./"
 
 def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9, n=30, tau=0.1, study_bias_scores=None, gamma=1.0, outfile=None):
     is_graphml=0
@@ -70,9 +80,10 @@ def _check_namespace(namespace):
 
 
 def _get_path_to_study_bias_scores(study_bias_scores, namespace):
+    directory = getpath()
     if isinstance(study_bias_scores, pd.DataFrame):
-        study_bias_scores.to_csv(f'./robust_bias_aware/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv', index=False)
-        study_bias_scores=f'./robust_bias_aware/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv'
+        study_bias_scores.to_csv(f'{directory}/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv', index=False)
+        study_bias_scores=f'{directory}/data/study_bias_scores/{namespace}/custom_study_bias_scores.csv'
         return study_bias_scores
     else:
         if os.path.exists(study_bias_scores):
@@ -84,10 +95,11 @@ def _get_path_to_study_bias_scores(study_bias_scores, namespace):
         else:
             if study_bias_scores=='None':
                 return study_bias_scores
-    return f'./robust_bias_aware/data/study_bias_scores/{namespace}/{study_bias_scores}.csv'
+    return f'{directory}/data/study_bias_scores/{namespace}/{study_bias_scores}.csv'
 
 
 def _check_and_preprocess_network(network, namespace):
+    directory = getpath()
     is_graphml=0
     if type(network) is nx.Graph:
         is_graphml=1
@@ -96,15 +108,15 @@ def _check_and_preprocess_network(network, namespace):
             is_graphml=1
             network=nx.read_graphml(network)
         elif network in ['BioGRID', 'APID', 'STRING']:
-            network = f'./robust_bias_aware/data/networks/{namespace}/{network}.txt'
+            network = f'{directory}/data/networks/{namespace}/{network}.txt'
         elif (network.endswith('.txt') or network.endswith('.csv') or network.endswith('.tsv')):
             if not os.path.exists(network):
                 raise ValueError(f'Illegal network type: {network}')
         else:
             raise ValueError(f'Illegal network type: {network}')
     elif isinstance(network, pd.DataFrame):
-        network.to_csv(f'./robust_bias_aware/data/networks/{namespace}_customNetwork.txt', index=False, sep=' ')
-        network=f'./robust_bias_aware/data/networks/{namespace}_customNetwork.txt'
+        network.to_csv(f'{directory}/data/networks/{namespace}_customNetwork.txt', index=False, sep=' ')
+        network=f'{directory}/data/networks/{namespace}_customNetwork.txt'
     return network, is_graphml
 
 
