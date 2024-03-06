@@ -13,7 +13,7 @@ def get_path():
         return data_directory
     else:
         # local mode
-        return "./"
+        return "."
 
 def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9, n=30, tau=0.1, study_bias_scores=None, gamma=1.0, outfile=None):
     is_graphml=0
