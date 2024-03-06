@@ -7,6 +7,9 @@ import pandas as pd
 import os
 
 def get_path():
+    current_directory = os.getcwd()
+    # Drucke das aktuelle Arbeitsverzeichnis
+    print("Aktuelles Arbeitsverzeichnis:", current_directory)
     data_directory = "./robust_bias_aware"
     if os.path.isdir(data_directory):
         # package mode
