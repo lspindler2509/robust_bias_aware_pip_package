@@ -9,14 +9,13 @@ import os
 def get_path():
     current_directory = os.getcwd()
     # Drucke das aktuelle Arbeitsverzeichnis
-    print("Aktuelles Arbeitsverzeichnis:", current_directory)
     data_directory = "./robust_bias_aware"
     if os.path.isdir(data_directory):
         # package mode
         return data_directory
     else:
         # local mode
-        return ""
+        return current_directory
 
 def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9, n=30, tau=0.1, study_bias_scores=None, gamma=1.0, outfile=None):
     is_graphml=0
