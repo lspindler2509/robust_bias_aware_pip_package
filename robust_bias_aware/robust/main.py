@@ -8,13 +8,29 @@ import os
 
 def get_path():
     # Drucke das aktuelle Arbeitsverzeichnis
-    data_directory = "./site-packages"
+    # Pfad zum aktuellen Skript (dieses Skript)
+    current_script_path = os.path.abspath(__file__)
+
+    # Verzeichnis, in dem das Skript liegt
+    script_directory = os.path.dirname(current_script_path)
+
+    # Relativer Pfad zur Datei BioGRID.txt
+    relative_path = "data/networks/GENE_SYMBOL/BioGRID.txt"
+
+    # Vollständiger Pfad zur BioGRID.txt-Datei
+    bioGRID_path = os.path.join(script_directory, relative_path)
+    print(bioGRID_path)
+    print(relative_path)
+    print(script_directory)
+    print(current_script_path)
+
+    data_directory = "./pcst"
     if os.path.isdir(data_directory):
         # package mode
-        return data_directory
+        return ".."
     else:
         # local mode
-        return "./"
+        return "."
 
 def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9, n=30, tau=0.1, study_bias_scores=None, gamma=1.0, outfile=None):
     is_graphml=0
