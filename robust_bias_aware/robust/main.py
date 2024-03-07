@@ -7,27 +7,10 @@ import pandas as pd
 import os
 
 def get_path():
-    # Drucke das aktuelle Arbeitsverzeichnis
-    # Pfad zum aktuellen Skript (dieses Skript)
-    current_script_path = os.path.abspath(__file__)
-
-    # Verzeichnis, in dem das Skript liegt
-    script_directory = os.path.dirname(current_script_path)
-
-    # Relativer Pfad zur Datei BioGRID.txt
-    relative_path = "data/networks/GENE_SYMBOL/BioGRID.txt"
-
-    # Vollständiger Pfad zur BioGRID.txt-Datei
-    bioGRID_path = os.path.join(script_directory, relative_path)
-    print(bioGRID_path)
-    print(relative_path)
-    print(script_directory)
-    print(current_script_path)
-
-    data_directory = "./pcst"
+    data_directory = "./robust_bias_aware"
     if os.path.isdir(data_directory):
         # package mode
-        return ".."
+        return data_directory
     else:
         # local mode
         return "."
