@@ -8,12 +8,21 @@ import os
 
 def get_path():
     data_directory = "./robust_bias_aware"
+    # Aktuelles Verzeichnis des ausführbaren Skripts oder Moduls
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+
+    # Liste der Dateien und Ordner im aktuellen Verzeichnis
+    files_and_folders = os.listdir(current_directory)
+
+    # Ausgabe der Liste
+    print(current_directory)
+    print(files_and_folders)
     if os.path.isdir(data_directory):
         # package mode
         return data_directory
     else:
         # local mode
-        return "."
+        return ".."
 
 def run(seeds, network='BioGRID', namespace='GENE_SYMBOL', alpha=0.25, beta=0.9, n=30, tau=0.1, study_bias_scores=None, gamma=1.0, outfile=None):
     is_graphml=0
