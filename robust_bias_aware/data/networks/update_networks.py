@@ -6,6 +6,7 @@ import mygene
 import os
 
 def update_networks():
+    print('Updating networks...')
     client = ndex2.client.Ndex2()
 
     # (1.2) APID Human Interactome (only human proteins):
@@ -449,3 +450,5 @@ def update_networks():
     fullname = os.path.join(outdir, outname)
 
     STRING_ENTREZGENE.to_csv(fullname, sep=' ', index=False)
+    
+    print('networks updated...')

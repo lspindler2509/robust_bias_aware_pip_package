@@ -12,7 +12,7 @@ def update_study_bias_scores():
     # #url = "http://ftp.ebi.ac.uk/pub/databases/intact/2021-10-13/psimitab/intact.zip"
     url = "http://ftp.ebi.ac.uk/pub/databases/intact/current/psimitab/intact.zip"
 
-    # print('Downloading...')
+    print('Downloading...')
     r = requests.get(url)
     z = zipfile.ZipFile(io.BytesIO(r.content))
     z.extractall(".")
@@ -58,18 +58,18 @@ def update_study_bias_scores():
 
 
     intact_human.to_csv('intact_human.txt',index = None, sep = '\t', mode = 'w')
-    # print('Downloading Done!')
+    print('Downloading Done!')
 
     # #########################*****************************************************************************************************#########################
     # ######################################################## Bait usage generation code: ########################################################
     # #########################*****************************************************************************************************#########################
 
     intact_human = pd.read_table('intact_human.txt', low_memory=False)
-    # print(len(intact_human))
+    print(len(intact_human))
 
     # intact_human_unique = pd.DataFrame(intact_human,columns = ['ID(s) interactor A','ID(s) interactor B'])
     # len(intact_human_unique.drop_duplicates())
-    # print(intact_human.columns)
+    print(intact_human.columns)
 
 
     bait_a = intact_human.loc[intact_human['Experimental role(s) interactor A'] == 'bait','ID(s) interactor A']
@@ -378,3 +378,5 @@ def update_study_bias_scores():
     # #########################*****************************************************************************************************#########################
     # #########################################################################################################################################################
     # #########################*****************************************************************************************************#########################
+
+    print('studybias updated...')
