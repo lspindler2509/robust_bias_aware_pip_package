@@ -310,6 +310,8 @@ def update_networks():
     nodes_=[]
     node_attributes=[]
     for u, v in nx.get_node_attributes(STRING,'represents').items():
+        print(v)
+        print(u)
         symbols_=v.split('hgnc.symbol:')
         symbol=symbols_[1]
         nodes_.append(u)
